@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кликер</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background: #242124 }
+		h1 { color: #fff }
+        #score { font-size: 48px; margin: 20px; color: #800000; }
+        #clicker {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(145deg, #8b0000, #860111);
+            margin: 20px auto;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.1s;
+            user-select: none;
+        }
+        #clicker:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <h1>🖱️ Кликер</h1>
+    <div id="score">0</div>
+    <div id="clicker" onclick="clickerClick()">КЛИК!</div>
+    <button onclick="resetScore()">Сброс</button>
+
+    <script>
+        let score = 0;
+
+        function clickerClick() {
+            score++;
+            document.getElementById('score').textContent = score;
+        }
+
+        function resetScore() {
+            score = 0;
+            document.getElementById('score').textContent = score;
+        }
+    </script>
+</body>
+</html>
