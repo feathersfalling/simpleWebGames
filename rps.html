@@ -1,53 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Камень, Ножницы, Бумага</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; background: #242124 }
-		h1 { color: #fff }
-		.score { color: #fff }
-        .choices button { font-size: 24px; padding: 15px 25px; margin: 10px; cursor: pointer; border: none; border-radius: 10px; background: #f0f0f0; }
-        .choices button:hover { background: #ddd; }
-        .result { font-size: 22px; margin: 20px; color: #fff }
-    </style>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="style.rps.css">
+	<script src="rps.js" defer></script>
 </head>
 <body>
-    <h1>✊ Камень, Ножницы, Бумага ✋</h1>
+    <h1>✊ Rock, Paper, Scissors ✋</h1>
     <div class="choices">
-        <button onclick="play('камень')">✊ Камень</button>
-        <button onclick="play('ножницы')">✌️ Ножницы</button>
-        <button onclick="play('бумага')">✋ Бумага</button>
+        <button onclick="play('rock')">✊ Rock</button>
+        <button onclick="play('scissors')">✌️ Paper</button>
+        <button onclick="play('paper')">✋ Scissors</button>
     </div>
     <div class="result" id="result"></div>
-    <div class="score" id="score">Счёт: Игрок 0 - 0 Компьютер</div>
-
-    <script>
-        let playerScore = 0;
-        let computerScore = 0;
-
-        function play(playerChoice) {
-            const choices = ['камень', 'ножницы', 'бумага'];
-            const computerChoice = choices[Math.floor(Math.random() * 3)];
-
-            let result = `Ты выбрал: ${playerChoice}, Компьютер: ${computerChoice}. `;
-
-            if (playerChoice === computerChoice) {
-                result += 'Ничья! 🤝';
-            } else if (
-                (playerChoice === 'камень' && computerChoice === 'ножницы') ||
-                (playerChoice === 'ножницы' && computerChoice === 'бумага') ||
-                (playerChoice === 'бумага' && computerChoice === 'камень')
-            ) {
-                result += 'Ты выиграл! 🎉';
-                playerScore++;
-            } else {
-                result += 'Компьютер выиграл! 💻';
-                computerScore++;
-            }
-
-            document.getElementById('result').textContent = result;
-            document.getElementById('score').textContent = `Счёт: Игрок ${playerScore} - ${computerScore} Компьютер`;
-        }
-    </script>
+    <div class="score" id="score">Score: Player 0 - 0 Computer</div>
 </body>
+
 </html>
